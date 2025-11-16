@@ -159,13 +159,13 @@ def clean_json_reviews_aggressive(reviews: List[str]) -> List[str]:
 # EXISTING SYSTEM FUNCTIONS
 # ============================================================================
 
+
 import os
 API_KEY = os.environ.get("GROQ_API_KEY")
-
 if not API_KEY:
-    st.error("GROQ_API_KEY not found in .review.env")
+    st.error("❌ GROQ_API_KEY not found in environment variables. Please check your Streamlit Cloud settings.")
     st.stop()
-
+    
 @st.cache_resource
 def get_groq_client():
     return Groq(api_key=API_KEY)
