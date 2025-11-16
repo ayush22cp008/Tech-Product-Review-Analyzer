@@ -159,14 +159,9 @@ def clean_json_reviews_aggressive(reviews: List[str]) -> List[str]:
 # EXISTING SYSTEM FUNCTIONS
 # ============================================================================
 
-def load_api_key():
-    from dotenv import load_dotenv, find_dotenv
-    env_file = find_dotenv('.review.env', raise_error_if_not_found=False)
-    if env_file:
-        load_dotenv(env_file, override=True)
-    return os.environ.get("GROQ_API_KEY")
+import os
+API_KEY = os.environ.get("GROQ_API_KEY")
 
-API_KEY = load_api_key()
 if not API_KEY:
     st.error("GROQ_API_KEY not found in .review.env")
     st.stop()
