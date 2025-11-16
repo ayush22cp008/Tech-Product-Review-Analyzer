@@ -162,10 +162,13 @@ def clean_json_reviews_aggressive(reviews: List[str]) -> List[str]:
 import os
 st.write("GROQ_API_KEY is", GROQ_API_KEY )
 
+import os
+api_key = os.environ.get("GROQ_API_KEY")
+st.write("GROQ_API_KEY is", api_key)
 
 @st.cache_resource
 def get_groq_client():
-    return Groq(api_key=GROQ_API_KEY )
+    return Groq(api_key=api_key)
 
 client = get_groq_client()
 
