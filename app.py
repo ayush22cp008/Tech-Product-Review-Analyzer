@@ -591,7 +591,7 @@ def render_batch_with_report():
                         'Strengths': ', '.join(r.get('strengths', []))
                     } for r in results])
 
-                    st.dataframe(df_display, use_container_width=True, height=None)
+                    st.dataframe(df_display, use_container_width=True, height="auto")
 
                     st.divider()
 
